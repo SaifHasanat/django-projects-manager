@@ -7,15 +7,14 @@
     <title>the projects</title>
 </head>
 <body>
-
-
 {% for project in projects %}
-<h4>{{project.title}}</h4>
+<h4>{{project.title}}<a href="{% url 'ProjectUpdateView' project.id %}">edit</a><form method="POST" action="{% url 'ProjectDeleteView' project.id %}">
+            {% csrf_token %}
+           <button type="submit">Delete</button>
+        </form></h4>
 {% empty %}
-    <p>There are no projects.</p>
+<p>There are no projects.</p>
 {%endfor%}
-
-
 
 </body>
 </html>

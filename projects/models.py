@@ -33,6 +33,7 @@ class Task(models.Model):
     project= models.ForeignKey(Project,on_delete=models.CASCADE)
     # عند حذف المشروع تحذف المهام المتعلقة به ايضا
 
+
     def __str__(self):
         return self.description
 
